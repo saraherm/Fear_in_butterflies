@@ -282,3 +282,16 @@ anova(aphids.glm.nb6, test="Rao")
 
 
 
+
+
+#take a look at yield?
+# FC2_CollardYield_2016_alldata.csv
+yield <- read.csv("https://raw.githubusercontent.com/saraherm/Fear_in_butterflies/master/FC2_CollardYield_2016_alldata.csv", header=T)
+head(yield)
+summary(yield)
+hist(yield$adj.weight.minus.bag)
+hist(yield$avg.per.plant)
+
+yield.aov <- aov(yield$avg.per.plant~yield$treat)
+summary(yield.aov)
+#marginal effect of treatment on yield.
